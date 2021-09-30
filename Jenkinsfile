@@ -3,7 +3,7 @@ pipeline{
   stages{
     stage('prerequisites'){
       agent{
-        docker{  image 'django'  }
+        label{  image 'django'  }
       }
       steps{
         echo 'build'
