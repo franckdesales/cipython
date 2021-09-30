@@ -1,10 +1,16 @@
 pipeline{
-  agent any
+  agent docker
 
   stages{
-    stage('build'){
+    stage('prerequisites'){
       steps{
         echo 'build'
+      }
+    }
+
+    stage('test'){
+      steps{
+        echo 'test'
       }
     }
   }
