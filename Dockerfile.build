@@ -5,8 +5,6 @@ ARG REQUIREMENTS_FILE=./transparencyportal/requirements/production.txt
 # define an alias for the specfic python version used in this file.
 FROM python:${PYTHON_VERSION} 
 
-ARG BUILD_ENVIRONMENT=production
-
 # Install apt packages
 RUN apt-get update && apt-get install --no-install-recommends -y \
   # dependencies for building Python packages
@@ -15,8 +13,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   libpq-dev
 
 # Requirements are installed here to ensure they will be cached.
-COPY ${REQUIREMENTS_FILE} .
+COPY ./transparencyportal/requirements/production.txt .
 
 # Create Python Dependency and Sub-Dependency Wheels.
 RUN pip wheel --wheel-dir /usr/src/app/wheels  \
-  -r ${BUILD_ENVIRONMENT}.txt
+  -r production.txt
