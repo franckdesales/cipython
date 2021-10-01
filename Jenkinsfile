@@ -1,12 +1,12 @@
 pipeline{  
-  agent{
-        docker{  image 'django'  }
-      }
+  agent none
   stages{
     stage('prerequisites'){
+      agent{
+        docker{  image 'django'  }
+      }
       steps{
-        echo 'build'
-        sh 'python --version'
+        sh 'pip install -r ./transparencyportal/requirements/production.txt'
       }
     }
 
