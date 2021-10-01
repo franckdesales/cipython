@@ -7,7 +7,7 @@ pipeline{
   stages{
     stage('prerequisites'){
       steps{
-        sh 'docker ps -a'
+        
       }
     }
 
