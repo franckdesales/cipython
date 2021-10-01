@@ -1,14 +1,13 @@
 pipeline{  
-  agent none
+  agent{
+    dockerfile{
+      filename 'Dockerfile.build'
+    }
+  }
   stages{
     stage('prerequisites'){
-      agent{
-        docker{  image 'python:3.9-slim-buster'  }
-      }
       steps{
-        sh 'apt-get update'
-        sh 'apt-get install --no-install-recommends -y build-essential libpq-dev'
-        
+        sh 'docker ps -a'
       }
     }
 
