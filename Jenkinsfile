@@ -7,7 +7,7 @@ pipeline{
   stages{
     stage('prerequisites'){
       steps{
-        
+        echo 'pip install result'
       }
     }
 
