@@ -1,10 +1,10 @@
 pipeline{  
-  agent none
+  agent{
+        docker{  image 'django'  }
+      }
   stages{
     stage('prerequisites'){
-      agent{
-        label{  image 'django'  }
-      }
+      
       steps{
         echo 'build'
         sh 'python --version'
