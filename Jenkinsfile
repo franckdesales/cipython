@@ -3,10 +3,12 @@ pipeline{
   stages{
     stage('prerequisites'){
       agent{
-        docker{  image 'django'  }
+        docker{  image 'python:3.9-slim-buster'  }
       }
       steps{
-        sh 'pip install -r ./transparencyportal/requirements/production.txt'
+        sh 'apt-get update'
+        sh 'apt-get install --no-install-recommends -y build-essential libpq-dev'
+        
       }
     }
 
