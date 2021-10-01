@@ -4,7 +4,6 @@ pipeline{
       }
   stages{
     stage('prerequisites'){
-      
       steps{
         echo 'build'
         sh 'python --version'
