@@ -8,6 +8,9 @@ pipeline{
     stage('prerequisites'){
       steps{
         echo 'pip install result'
+        sh 'pytest'
+        sh 'coverage run -m pytest'
+        sh 'coverage html'
       }
     }
 
