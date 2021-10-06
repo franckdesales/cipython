@@ -19,4 +19,4 @@ COPY ./transparencyportal/requirements .
 RUN pip wheel --wheel-dir /usr/src/app/wheels  \
   -r production.txt
 
-RUN echo $?
+RUN pytest
