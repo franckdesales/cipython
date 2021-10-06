@@ -13,7 +13,8 @@ pipeline{
 
     stage('test'){
       steps{
-        echo 'test'
+        sh 'coverage run -m pytest'
+        sh 'coverage html'
       }
     }
 
